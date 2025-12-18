@@ -1,0 +1,16 @@
+GET http://localhost:3000/todos
+
+###
+
+GET http://localhost:3000/todos/201
+
+###
+
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "userId": 12,
+  "title": "Une autre Todo",
+  "completed": true
+}
