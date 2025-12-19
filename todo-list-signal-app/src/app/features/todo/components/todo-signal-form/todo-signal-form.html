@@ -1,0 +1,18 @@
+<h2>todo-signal-form works!</h2>
+
+<form (submit)="submitTodo($event)">
+  <label for="todoTitle">Todo title</label>
+  <input [field]="todoForm.title" type="text" id="todoTitle" placeholder="Title ..." />
+  <br />
+  <pre>
+    todoForm.title.valid: {{ todoForm.title().valid() }}
+    todoForm.title.invalid: {{ todoForm.title().invalid() }}
+
+    todoForm().valid(): {{ todoForm().valid() }}
+    todoForm().invalid(): {{ todoForm().invalid() }}
+  </pre>
+  <label for="todoCompleted">Todo completed</label>
+  <input [field]="todoForm.completed" type="checkbox" id="todoCompleted" />
+  <br />
+  <button type="submit" [disabled]="todoForm().invalid()">Ajouter</button>
+</form>

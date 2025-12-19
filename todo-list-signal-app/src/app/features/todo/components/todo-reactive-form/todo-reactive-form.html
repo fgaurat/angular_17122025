@@ -1,0 +1,40 @@
+<h2>todo-reactive-form works!</h2>
+
+<form [formGroup]="todoForm" (ngSubmit)="submitTodo()">
+  <label for="todoTitle">Todo title</label>
+  <input
+    type="text"
+    formControlName="title"
+    name="todoTitle"
+    id="todoTitle"
+    placeholder="Title ..."
+  />
+  @if(todoForm.get('title')!.hasError('required') && todoForm.get('title')!.touched){
+  <div>Champ title obligatoire !</div>
+  }
+
+  <br />
+  <label for="todoCompleted">Todo completed</label>
+  <input type="checkbox" formControlName="completed" name="todoCompleted" id="todoCompleted" />
+  <br />
+  <pre>
+todoForm.invalid:{{ todoForm.invalid }}
+todoForm.valid:{{ todoForm.valid }}
+todoForm.dirty:{{ todoForm.dirty }}
+todoForm.pristine:{{ todoForm.pristine }}
+
+  </pre>
+  <br />
+  <div formArrayName="tags">
+    <h3>Tags</h3>
+    <button (click)="addTags()">add tags</button>
+    <br />
+    @for(tag of tags.controls; track $index){
+    <label for="tag-{{ $index }}">Tag {{ $index + 1 }}</label>
+    <input type="text" id="tag-{{ $index }}" [formControlName]="$index" />
+    <br />
+    }
+  </div>
+
+  <button [disabled]="todoForm.invalid">Ajouter</button>
+</form>

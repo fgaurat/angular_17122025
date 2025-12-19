@@ -1,0 +1,28 @@
+<h1>{{ title() }}</h1>
+<br />
+count: {{ count() }}
+<br />
+doubleCount: {{ doubleCount() }}
+<br />
+conditionalCount: {{ conditionalCount() }}
+<br />
+<button (click)="setTo2()">set to 2</button>
+<br />
+<button (click)="setTo5Time()">set to 5 in 500ms</button>
+<br />
+<button (click)="inc()">inc</button>
+<br />
+<button (click)="toggleShowCount()">toggleShowCount</button>
+<ul>
+  @for(customer of customersSignal();track customer.id){
+  <li>{{ customer.name }}</li>
+  }
+</ul>
+
+amount: {{ customersAmount() }}
+
+<button (click)="addCustomer()">add cutomer</button>
+<hr />
+<app-inc-component></app-inc-component>
+<br />
+<app-show-component></app-show-component>

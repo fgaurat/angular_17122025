@@ -1,0 +1,14 @@
+<h2>todo-list works!</h2>
+
+<table>
+  @for(todo of todoStore.todos();track todo.id){
+  <tr>
+    <td>{{ todo.id }}</td>
+    <td>{{ todo.title }}</td>
+    <td>{{ todo.completed }}</td>
+    <td>
+      <button (click)="delete(todo)">delete</button>
+    </td>
+  </tr>
+  }
+</table>
