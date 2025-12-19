@@ -1,0 +1,10 @@
+<h1>Hello, {{ title() }}</h1>
+
+<nav>
+  <a [routerLink]="['/page-01']">page 01</a> - <a routerLink="/page-01">page 01</a>
+  <br />
+  <a routerLink="/page-02">page 02</a>
+  <br />
+  <a routerLink="/page-03/fred">page 03</a>
+</nav>
+<router-outlet />
